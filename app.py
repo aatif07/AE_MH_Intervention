@@ -15,7 +15,11 @@ def predict():
     float_features = [int(x) for x in request.form.values()]
     features = [np.array(float_features)]
     prediction = model.predict(features)
-    return render_template("index.html", prediction_text = "The result for MH prediction is {}".format(prediction))
+    if prediction==0:
+        prediction="This patient will not have MH referral"
+    else:
+        prediction="This patient will have MH referral"
+    return render_template("index.html", prediction_text = "{}".format(prediction))
 
 if __name__ == "__main__":
     app.run(debug=True)
