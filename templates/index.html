@@ -4,40 +4,127 @@
 <head>
   <meta charset="UTF-8">
   <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+
 
 </head>
 
 <body>
- <div class="login">
-	<h1>Predict MH Intervention for AE Patients</h1>
+<header class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <img src="https://www.digitalhealth.net/wp-content/uploads/2020/01/arden-gem-logo.png.webp" alt="AGEM" width="130" height="130">
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
+      <span class="ml-3 text-xl">Mental Health Prediction Dashboard</span>
+    </a>
+    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+      <a class="mr-5 hover:text-gray-900">Emergency Patients</a>
+      <a class="mr-5 hover:text-gray-900">Admitted Patient Care</a>
+    </nav>
 
-        <input type="text" name="mhdiag" placeholder="MH Diagnosis" required="required" />
-		<input type="text" name="age" placeholder="Age" required="required" />
-        <input type="text" name="sex" placeholder="Sex" required="required" />
-        <input type="text" name="noaediag" placeholder="No. of AE Diag" required="required" />
-		<input type="text" name="noecdiag" placeholder="No. of EC Diag" required="required" />
-        <input type="text" name="noaeinv" placeholder="No. of AE Inv" required="required" />
-        <input type="text" name="noecinv" placeholder="No. of EC Inv" required="required" />
-		<input type="text" name="noaetr" placeholder="No. of AE Treatment" required="required" />
-        <input type="text" name="noectr" placeholder="No. of EC Treatment" required="required" />
+  </div>
+</header>
 
 
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
 
-   <br>
-   <br>
-   {{ prediction_text }}
+<form action="{{ url_for('predict')}}"method="post">
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">A&E MH Referral Prediction</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please enter the values to test the model.</p>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2">
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Previous MH Diagnosis</label>
+            <select id="default"  name="mhdiag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">Age</label>
+            <input type="number" required="required" id="email" name="Age" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Gender</label>
+            <select id="name" name="Sex" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Diagnoses</label>
+            <input type="number" required="required" id="email" name="noaediag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">No. of EC Diagnoses</label>
+            <input type="number" required="required" id="name" name="noecdiag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Investigations</label>
+            <input type="number" required="required" id="email" name="noaeinv" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">No. of EC Investigations</label>
+            <input type="number" required="required" id="name" name="noecinv" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Treatments</label>
+            <input type="number" required="required" id="email" name="noaetreat" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="email" class="leading-7 text-sm text-gray-600">No. of EC Treatments</label>
+            <input type="number" required="required" id="email" name="noectreat" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+        </div>
 
- </div>
+
+          <div class="p-2 w-1/2">
+          <div class="relative">
+            <label class="leading-7 text-sm text-gray-600">RESULT</label>
+            <br>
+            <label>  {{ prediction_text }} </label>
+          </div>
+        </div>
+
+
+
+        <div class="p-2 w-full">
+          <button type = "submit" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Predict</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</section>
+</form>
+
+
+
 
 
 </body>
