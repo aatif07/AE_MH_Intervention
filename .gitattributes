@@ -2,3 +2,4 @@ testmodel.pkl filter=lfs diff=lfs merge=lfs -text
 testmodel1.pkl filter=lfs diff=lfs merge=lfs -text
 testmodel2.pkl filter=lfs diff=lfs merge=lfs -text
 testmodel3.pkl filter=lfs diff=lfs merge=lfs -text
+model.pkl filter=lfs diff=lfs merge=lfs -text
