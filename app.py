@@ -8,7 +8,7 @@ model = pickle.load(open("model.pkl", "rb"))
 
 @app.route("/")
 def Home():
-    return render_template("index.html")
+    return render_template("aemhref.html")
 
 @app.route("/predict", methods = ["POST"])
 def predict():
@@ -19,7 +19,7 @@ def predict():
         prediction="This patient will not have MH referral"
     else:
         prediction="This patient will have MH referral"
-    return render_template("index.html", prediction_text = "{}".format(prediction))
+    return render_template("aemhref.html", prediction_text = "{}".format(prediction))
 
 if __name__ == "__main__":
     app.run(debug=True)
