@@ -202,11 +202,11 @@ header{
        <div class="item">
          <a class="sub-btn"><i class=""></i>Admitted Patient Care<i class="fas fa-angle-right dropdown"></i></a>
          <div class="sub-menu">
-           <a href="#" class="sub-item">MH Referral</a>
-           <a href="#" class="sub-item">Primary MH Diagnosis</a>
-           <a href="#" class="sub-item">Primary MH Sub-category</a>
-             <a href="#" class="sub-item">Secondary MH Diagnosis</a>
-             <a href="#" class="sub-item">Secondary MH Sub-category</a>
+           <a href="apcmhref.html" class="sub-item">MH Referral</a>
+           <a href="apcprimdiag.html" class="sub-item">Primary MH Diagnosis</a>
+           <a href="apcprimsubcat.html" class="sub-item">Primary MH Sub-category</a>
+             <a href="apcsecdiag.html" class="sub-item">Secondary MH Diagnosis</a>
+             <a href="apcsecsubcat.html" class="sub-item">Secondary MH Sub-category</a>
          </div>
        </div>
        <div class="item">
@@ -226,7 +226,7 @@ header{
 <form action="{{ url_for('predict')}}"method="post">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">A&E MH Referral Prediction</h1>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">APC Primary Diagnosis Prediction</h1>
       <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please enter the values to test the model.</p>
     </div>
     <div class="lg:w-1/2 md:w-2/3 mx-auto">

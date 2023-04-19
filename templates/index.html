@@ -1,131 +1,279 @@
 <!DOCTYPE html>
-<html >
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
-<head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<html lang="en" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Mental Health Prediction Dashboard</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+   <style media="screen">
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: "Poppins", sans-serif;
+}
+
+body{
+ min-height: 100vh;
+ background: white;
+ color: black;
+ background-size: cover;
+ background-position: center;
+}
+
+.side-bar{
+ background: #fff;
+ backdrop-filter: blur(15px);
+ width: 300px;
+ height: 100vh;
+ position: fixed;
+ top: 0;
+ left: -300px;
+ overflow-y: auto;
+ transition: 0.6s ease;
+ transition-property: left;
+}
+.side-bar::-webkit-scrollbar {
+  width: 0px;
+}
 
 
-</head>
 
-<body>
-<header class="text-gray-600 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-      <img src="https://www.digitalhealth.net/wp-content/uploads/2020/01/arden-gem-logo.png.webp" alt="AGEM" width="130" height="130">
+.side-bar.active{
+ left: 0;
+}
+h1{
 
-      <span class="ml-3 text-xl">Mental Health Prediction Dashboard</span>
-    </a>
-    <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-      <a class="mr-5 hover:text-gray-900">Emergency Patients</a>
-      <a class="mr-5 hover:text-gray-900">Admitted Patient Care</a>
-    </nav>
+  text-align: center;
+  font-weight: 500;
+  font-size: 25px;
+  padding-bottom: 13px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+}
 
-  </div>
-</header>
+.side-bar .menu{
+ width: 100%;
+ margin-top: 30px;
+}
+
+.side-bar .menu .item{
+ position: relative;
+ cursor: pointer;
+}
+
+.side-bar .menu .item a{
+ color: #000;
+ font-size: 16px;
+ text-decoration: none;
+ display: block;
+ padding: 5px 5px;
+ line-height: 40px;
+}
+
+.side-bar .menu .item a:hover{
+ background: #d3d3d3;
+ transition: 0.3s ease;
+}
+
+.side-bar .menu .item i{
+ margin-right: 15px;
+}
+
+.side-bar .menu .item a .dropdown{
+ position: absolute;
+ right: 0;
+ margin: 10px;
+ transition: 0.3s ease;
+}
+
+.side-bar .menu .item .sub-menu{
+ background: #fff;
+ display: none;
+}
+
+.side-bar .menu .item .sub-menu a{
+ padding-left: 50px;
+}
+
+.rotate{
+ transform: rotate(90deg);
+}
+
+.close-btn{
+ position: absolute;
+ color: #000;
+
+ font-size: 23px;
+ right:  0px;
+ margin: 15px;
+ cursor: pointer;
+}
+
+.menu-btn{
+ position: absolute;
+ color: rgb(0, 0, 0);
+ font-size: 35px;
+ margin: 25px;
+ cursor: pointer;
+}
+
+.main{
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 50px;
+}
+
+.main h1{
+ color: rgba(0, 0, 0, 0.8);
+ font-size: 60px;
+ text-align: center;
+ line-height: 80px;
+}
+
+@media (max-width: 900px){
+ .main h1{
+   font-size: 40px;
+   line-height: 40px;
+ }
+}
+img{
+  width: 100px;
+  margin: 15px;
+  border-radius: 50%;
+  margin-left: 70px;
+}
+header{
+  background: #fff;
+}
+
+#content {
+  position:relative;
+}
+
+.ribbon {
+  position:absolute;
+  top:0;
+  right:0;
+}
+   </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+ </head>
 
 
+
+
+
+ <body>
+
+ <div id="content">
+    <img src="https://www.digitalhealth.net/wp-content/uploads/2020/01/arden-gem-logo.png.webp" class="ribbon" alt="AGEM" height="300" width="300"/>
+</div>
+
+
+
+
+
+   <div class="menu-btn">
+     <i class="fas fa-bars"></i>
+   </div>
+
+
+   <div class="side-bar">
+
+     <header>
+
+
+
+     <div class="close-btn">
+
+       <i class="fas fa-times"></i>
+     </div>
+     <img src="https://www.digitalhealth.net/wp-content/uploads/2020/01/arden-gem-logo.png.webp" alt=AGEM">
+          <h1>Mental Health <br>Dashboard</h1>
+        </header>
+     <div class="menu">
+       <div class="item"><a href="index.html"><i class=""></i>Home</a></div>
+       <div class="item">
+         <a class="sub-btn"><i class=""></i>Admitted Patient Care<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="apcmhref.html" class="sub-item">MH Referral</a>
+           <a href="apcprimdiag.html" class="sub-item">Primary MH Diagnosis</a>
+           <a href="apcprimsubcat.html" class="sub-item">Primary MH Sub-category</a>
+             <a href="apcsecdiag.html" class="sub-item">Secondary MH Diagnosis</a>
+             <a href="apcsecsubcat.html" class="sub-item">Secondary MH Sub-category</a>
+         </div>
+       </div>
+       <div class="item">
+         <a class="sub-btn"><i class=""></i>Emergency Patient Care<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="aemhref.html" class="sub-item">MH Referral</a>
+           <a href="aediag.html" class="sub-item">MH Diagnosis</a>
+             <a href="aesubcat.html" class="sub-item">MH Sub-category</a>
+         </div>
+       </div>
+     </div>
+   </div>
+
+
+   <section class="main">
 
 <form action="{{ url_for('predict')}}"method="post">
-<section class="text-gray-600 body-font relative">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">A&E MH Referral Prediction</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please enter the values to test the model.</p>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Mental Health Dashboard Home</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please upload file for the live demo.</p>
     </div>
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">Previous MH Diagnosis</label>
-            <select id="default"  name="mhdiag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-              <option selected>Please select</option>
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-            </select>
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">Age</label>
-            <input type="number" required="required" id="email" name="Age" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">Gender</label>
-            <select id="name" name="Sex" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-              <option selected>Please select</option>
-              <option value="1">Male</option>
-              <option value="2">Female</option>
-            </select>
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Diagnoses</label>
-            <input type="number" required="required" id="email" name="noaediag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">No. of EC Diagnoses</label>
-            <input type="number" required="required" id="name" name="noecdiag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Investigations</label>
-            <input type="number" required="required" id="email" name="noaeinv" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">No. of EC Investigations</label>
-            <input type="number" required="required" id="name" name="noecinv" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Treatments</label>
-            <input type="number" required="required" id="email" name="noaetreat" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of EC Treatments</label>
-            <input type="number" required="required" id="email" name="noectreat" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-          </div>
-        </div>
 
 
-          <div class="p-2 w-1/2">
-          <div class="relative">
-            <label class="leading-7 text-sm text-gray-600">RESULT</label>
-            <br>
-            <label><b>  {{ prediction_text }} </b></label>
-          </div>
-        </div>
 
 
 
         <div class="p-2 w-full">
-          <button type = "submit" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Predict</button>
+          <button type = "submit" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Upload File</button>
         </div>
+
+
 
       </div>
     </div>
   </div>
 
-
-
-</section>
 </form>
 
+   </section>
 
 
 
+   <script type="text/javascript">
+   $(document).ready(function(){
+     //jquery for toggle sub menus
+     $('.sub-btn').click(function(){
+       $(this).next('.sub-menu').slideToggle();
+       $(this).find('.dropdown').toggleClass('rotate');
+     });
 
-</body>
+     //jquery for expand and collapse the sidebar
+     $('.menu-btn').click(function(){
+       $('.side-bar').addClass('active');
+       $('.menu-btn').css("visibility", "hidden");
+     });
+
+     $('.close-btn').click(function(){
+       $('.side-bar').removeClass('active');
+       $('.menu-btn').css("visibility", "visible");
+     });
+   });
+   </script>
+
+
+
+ </body>
 </html>
