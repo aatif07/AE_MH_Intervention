@@ -223,7 +223,7 @@ header{
 
    <section class="main">
 
-<form action="{{ url_for('predict')}}"method="post">
+<form action="{{ url_for('view') }} "method="post" enctype="multipart/form-data">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Mental Health Dashboard Home</h1>
@@ -237,7 +237,15 @@ header{
 
 
         <div class="p-2 w-full">
-          <button type = "submit" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Upload File</button>
+          <input type="file" name="file" align="center"
+            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+            <br>
+
+        </div>
+          <div class="p-2 w-full">
+          <br>
+            <button type = "submit" class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg" value="Upload">Upload File</button>
+
         </div>
 
 
