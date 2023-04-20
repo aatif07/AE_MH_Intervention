@@ -1,6 +1,9 @@
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+import pandas
+from flask import Flask, request, jsonify, render_template, request
 import pickle
+from fileinput import filename
+
 
 # Create flask app
 app = Flask(__name__)
@@ -9,6 +12,25 @@ model = pickle.load(open("model.pkl", "rb"))
 @app.route("/")
 def Home():
     return render_template("index.html")
+
+# Root endpoint
+@app.get('/')
+def upload():
+    return render_template('index.html')
+
+@app.post('/view')
+def view():
+    # Read the File using Flask request
+    file = request.files['file']
+    # save file in local directory
+    file.save(file.filename)
+
+    # Parse the data as a Pandas DataFrame type
+    data = pandas.read_excel(file)
+
+    # Return HTML snippet that will render the table
+    return data.to_html()
+
 
 @app.route("/apcmhref.html")
 def ApcMHRef():
