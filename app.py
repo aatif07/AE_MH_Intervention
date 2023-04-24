@@ -42,7 +42,7 @@ def view():
     data.to_excel(os.path.join(dfold,'./mh12.xlsx'))
 
     # Return HTML snippet that will render the table
-    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba, data.to_excel('mhpat1.xlsx')
+    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba, data.to_excel('./mhpat1.xlsx')
 
 
 @app.route("/apcmhref.html")
