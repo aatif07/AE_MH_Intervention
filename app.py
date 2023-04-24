@@ -39,7 +39,7 @@ def view():
     data['Prediction'] = model.predict(data)
     cba = data.to_excel('mhpat.xlsx')
     dfold = str(os.path.join(Path.home(), "Downloads"))
-    data.to_csv(os.path.join(dfold,'mh11.xlsx'))
+    data.to_excel(os.path.join(dfold,'mh12.xlsx'))
 
     # Return HTML snippet that will render the table
     return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba, data.to_excel('mhpat1.xlsx')
