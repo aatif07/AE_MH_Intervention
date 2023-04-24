@@ -160,6 +160,28 @@ header{
   top:0;
   right:0;
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+
+
    </style>
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -223,11 +245,15 @@ header{
 
    <section class="main">
 
+       <div class="card">
+  <div class="container">
+
+
 <form action="{{ url_for('view') }} "method="post" enctype="multipart/form-data">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Mental Health Dashboard Home</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please upload file for the live demo.</p>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Mental Health Dashboard v0.1</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please upload file for the live demo. It displays an A&E approach and the patient records should have 9 features in an xlsx format.</p>
     </div>
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
@@ -248,6 +274,13 @@ header{
 
         </div>
 
+          <br>
+          <div class="relative">
+
+            <label> <b> {{ prediction_text }} </b></label>
+          </div>
+
+
 
 
       </div>
@@ -255,6 +288,10 @@ header{
   </div>
 
 </form>
+  </div></div>
+
+
+
 
    </section>
 
