@@ -3,6 +3,7 @@ import pandas
 from flask import Flask, request, jsonify, render_template, request
 import pickle
 from fileinput import filename
+import csv
 
 
 
@@ -32,8 +33,9 @@ def view():
     abc = (prediction==1).sum()
     data['Prediction'] = model.predict(data)
     cba = data.to_excel('mhpat.xlsx')
-
-
+    f = open('mhpat1.xlsx', 'wb')
+    data.to_excel('mhpat1.xlsx')
+    f.close()
 
     # Return HTML snippet that will render the table
     return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba
