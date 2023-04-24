@@ -1,9 +1,14 @@
+import os
+
 import numpy as np
 import pandas
 from flask import Flask, request, jsonify, render_template, request
 import pickle
 from fileinput import filename
 import csv
+from pathlib import Path
+import os
+
 
 
 
@@ -33,12 +38,11 @@ def view():
     abc = (prediction==1).sum()
     data['Prediction'] = model.predict(data)
     cba = data.to_excel('mhpat.xlsx')
-    f = open('mhpat1.xlsx', 'wb')
-    data.to_excel('mhpat1.xlsx')
-    f.close()
+    dfold = str(os.path.join(Path.home(), "Downloads"))
+    data.to_csv(os.path.join(dfold,'mh11.xlsx'))
 
     # Return HTML snippet that will render the table
-    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba
+    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba, data.to_excel('mhpat1.xlsx')
 
 
 @app.route("/apcmhref.html")
