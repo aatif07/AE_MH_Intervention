@@ -43,10 +43,10 @@ def view():
         DOWNLOAD_FOLDER = f"{os.getenv('USERPROFILE')}\\Downloads"
     else:  # PORT: For *Nix systems
         DOWNLOAD_FOLDER = f"{os.getenv('HOME')}/Downloads"
-    data.to_excel(os.path.join(DOWNLOAD_FOLDER,'./mh12.xlsx'))
+    data.to_excel(os.path.join(DOWNLOAD_FOLDER,'mh12.xlsx'))
 
     # Return HTML snippet that will render the table
-    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba, data.to_excel('mhpat1.xlsx')
+    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba, data.to_excel(os.path.join(DOWNLOAD_FOLDER,'mh12.xlsx'))
 
 
 @app.route("/apcmhref.html")
