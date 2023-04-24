@@ -5,6 +5,7 @@ import pickle
 from fileinput import filename
 
 
+
 # Create flask app
 app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
@@ -27,9 +28,15 @@ def view():
 
     # Parse the data as a Pandas DataFrame type
     data = pandas.read_excel(file)
+    prediction = model.predict(data)
+    abc = (prediction==1).sum()
+    data['Prediction'] = model.predict(data)
+    cba = data.to_excel('mhpat.xlsx')
+
+
 
     # Return HTML snippet that will render the table
-    return data.to_html()
+    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba
 
 
 @app.route("/apcmhref.html")
