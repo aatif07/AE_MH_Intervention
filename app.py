@@ -39,10 +39,7 @@ def view():
     data['Prediction'] = model.predict(data)
     cba = data.to_excel('mhpat.xlsx')
     dfold = str(os.path.join(Path.home(), "Downloads"))
-    if os.name == "nt":
-        DOWNLOAD_FOLDER = f"{os.getenv('USERPROFILE')}\\Downloads"
-    else:  # PORT: For *Nix systems
-        DOWNLOAD_FOLDER = f"{os.getenv('HOME')}/Downloads"
+    DOWNLOAD_FOLDER = f"{os.getenv('HOME')}/"
     data.to_excel(os.path.join(DOWNLOAD_FOLDER,'mh12.xlsx'))
 
     # Return HTML snippet that will render the table
