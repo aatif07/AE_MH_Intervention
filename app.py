@@ -38,7 +38,7 @@ def view():
     abc = (prediction==1).sum()
     data['Prediction'] = model.predict(data)
     cba = data.to_excel('mhpat.xlsx')
-    dfold = str(os.path.join(Path.home(), "Downloads"))
+    dfold = str(os.path.join(Path.home()))
     data.to_excel(os.path.join(dfold,'mh12.xlsx'))
 
     # Return HTML snippet that will render the table
