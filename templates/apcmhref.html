@@ -259,40 +259,129 @@ header{
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Diagnoses</label>
-            <input type="number" required="required" id="email" name="noaediag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="name" class="leading-7 text-sm text-gray-600">Ethnicity</label>
+            <select required="required" id="name" name="Ethnic" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">White</option>
+              <option value="2">Mixed</option>
+              <option value="3">Black/Black British</option>
+              <option value="4">Asian/Asian British</option>
+              <option value="5">Other</option>
+            </select>
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">No. of EC Diagnoses</label>
-            <input type="number" required="required" id="name" name="noecdiag" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="name" class="leading-7 text-sm text-gray-600">Marital Status</label>
+            <select required="required" id="name" name="Marry" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Married</option>
+              <option value="2">Single</option>
+              <option value="3">Divorced</option>
+              <option value="4">Separated</option>
+              <option value="5">Widowed</option>
+            </select>
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Investigations</label>
-            <input type="number" required="required" id="email" name="noaeinv" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="email" class="leading-7 text-sm text-gray-600">Duration of Admission</label>
+            <input type="number" required="required" id="email" name="duration" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">No. of EC Investigations</label>
-            <input type="number" required="required" id="name" name="noecinv" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="name" class="leading-7 text-sm text-gray-600">Source of Admission</label>
+            <select required="required" id="name" name="Admission" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Usual place of residence</option>
+              <option value="2">Temporary</option>
+              <option value="3">Penal</option>
+              <option value="4">NHS - Other Psychiatric</option>
+              <option value="5">NHS - Other Ward</option>
+              <option value="6">NHS - Maternity Ward</option>
+              <option value="7">NHS - MH Ward</option>
+              <option value="8">LA - Residential</option>
+              <option value="9">LA - Foster Care</option>
+              <option value="10">Non-NHS - Care Home</option>
+              <option value="11">Non-NHS - Hospital</option>
+              <option value="12">Non-NHS - Hospice</option>
+            </select>
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of AE Treatments</label>
-            <input type="number" required="required" id="email" name="noaetreat" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="name" class="leading-7 text-sm text-gray-600">Discharge Method</label>
+            <select required="required" id="name" name="Discharge" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Discharged - Clinical advice</option>
+              <option value="2">Discharged - themselves/Advocate</option>
+              <option value="3">Discharged - MH review/Police</option>
+              <option value="4">Died</option>
+              <option value="5">Stillbirth</option>
+            </select>
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">No. of EC Treatments</label>
-            <input type="number" required="required" id="email" name="noectreat" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="name" class="leading-7 text-sm text-gray-600">Discharge Destination</label>
+            <select required="required" id="name" name="DischDest" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Usual place of residence</option>
+              <option value="2">Temporary</option>
+              <option value="3">Repatriation - Psych</option>
+              <option value="4">Court</option>
+              <option value="5">Penal or Police</option>
+              <option value="6">NHS - Other Psych</option>
+              <option value="7">NHS - Medium secure</option>
+              <option value="8">NHS - Other Ward</option>
+              <option value="9">NHS - Maternity Ward</option>
+              <option value="10">NHS - MH Ward</option>
+              <option value="11">NHS - Care Home</option>
+              <option value="12">LA - Residential</option>
+              <option value="13">LA - Foster Care</option>
+              <option value="14">N/A - Died or Stillbirth</option>
+              <option value="15">Non-NHS - Medium secure unit</option>
+              <option value="16">Non-NHS - Care Home</option>
+              <option value="17">Non-NHS - Hospital</option>
+              <option value="18">Non-NHS - Hospice</option>
+            </select>
           </div>
         </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Management Type</label>
+            <select required="required" id="name" name="Manage" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Daycase</option>
+              <option value="2">Elective</option>
+              <option value="3">Emergency</option>
+              <option value="4">Non-Elective</option>
+              <option value="5">Regular Day/Night attender</option>
+            </select>
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Distance from Practice</label>
+            <select required="required" id="name" name="DistPrac" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Close (<5 kms)</option>
+              <option value="2">Remote (>5 kms)</option>
+            </select>
+          </div>
+        </div>
+        <div class="p-2 w-1/2">
+          <div class="relative">
+            <label for="name" class="leading-7 text-sm text-gray-600">Distance from Provider</label>
+            <select required="required" id="name" name="Distprov" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <option selected>Please select</option>
+              <option value="1">Close (<5 kms)</option>
+              <option value="2">Remote (>5 kms)</option>
+            </select>
+          </div>
+        </div>
+
 
 
           <div class="p-2 w-1/2">
