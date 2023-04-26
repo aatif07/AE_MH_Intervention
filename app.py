@@ -39,11 +39,12 @@ def view():
     data['Prediction'] = model.predict(data)
     cba = data.to_excel('mhpat.xlsx')
     dfold = str(os.path.join(Path.home(), "Downloads"))
-    DOWNLOAD_FOLDER = f"{os.getenv('HOME')}/"
-    data.to_excel(os.path.join(DOWNLOAD_FOLDER,'mh12.xlsx'))
+    DOWNLOAD_FOLDER = f"{os.getenv('HOME')}/Downloads"
+    data.to_excel(os.path.join(DOWNLOAD_FOLDER,'./mh12.xlsx'))
 
     # Return HTML snippet that will render the table
-    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc)), cba, data.to_excel(os.path.join(DOWNLOAD_FOLDER,'mh12.xlsx'))
+    return render_template("index.html", prediction_text = "Out of the list of patients, {} will have MH interventions in the near future".format(abc))\
+        , cba, data.to_excel(os.path.join(DOWNLOAD_FOLDER,'./mh12.xlsx'))
 
 
 @app.route("/apcmhref.html")
@@ -81,16 +82,10 @@ def predict():
 def HomePage():
     return render_template("index.html")
 
-@app.route("/aemhref.html", methods = ["POST"])
+@app.route("/aemhref.html")
 def AeMHRef():
-    float_features = [int(x) for x in request.form.values()]
-    features = [np.array(float_features)]
-    prediction = model.predict(features)
-    if prediction == 0:
-        prediction = "This patient will not have MH referral"
-    else:
-        prediction = "This patient will have MH referral"
-    return render_template("aemhref.html", prediction_text="{}".format(prediction))
+
+    return render_template("aemhref.html")
 
 @app.route("/aediag.html")
 def AeDiag():
